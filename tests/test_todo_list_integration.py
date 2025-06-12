@@ -77,3 +77,40 @@ def test_add_multiple_tasks_then_give_up_and_get_incomplete_list_output_empty_in
     obj_todo_list.add(obj_todo_4)
     obj_todo_list.give_up()
     assert obj_todo_list.incomplete() == []
+    
+""" 
+Added multiple tasks and completed two
+return the complete list with those two task in it    
+"""
+def test_added_tasks_completed_two_output_completed_list_with_two_completed_task():
+    obj_todo_list = TodoList()
+    obj_todo_1 = Todo("Rest well")
+    obj_todo_2 = Todo("Recover well")
+    obj_todo_3 = Todo("Heal well")
+    obj_todo_4 = Todo("Power up")
+    obj_todo_1.mark_complete()
+    obj_todo_2.mark_complete()
+    obj_todo_list.add(obj_todo_1)
+    obj_todo_list.add(obj_todo_2)
+    obj_todo_list.add(obj_todo_3)
+    obj_todo_list.add(obj_todo_4)
+    assert obj_todo_list.complete() == [obj_todo_1, obj_todo_2]
+    
+""" 
+Added multiple tasks and completed two
+return the complete list with those two task in it    
+"""
+def test_added_tasks_completed_two_output_incomplete_list_with_two_incompleted_task():
+    obj_todo_list = TodoList()
+    obj_todo_1 = Todo("one")
+    obj_todo_2 = Todo("two")
+    obj_todo_3 = Todo("three")
+    obj_todo_4 = Todo("four")
+    obj_todo_1.mark_complete()
+    obj_todo_2.mark_complete()
+    obj_todo_list.add(obj_todo_1)
+    obj_todo_list.add(obj_todo_2)
+    obj_todo_list.add(obj_todo_3)
+    obj_todo_list.add(obj_todo_4)
+    assert obj_todo_list.incomplete() == [obj_todo_3, obj_todo_4]
+    
